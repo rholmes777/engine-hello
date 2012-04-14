@@ -1,0 +1,32 @@
+# xcode noise
+*.mode1v3
+*.pbxuser
+*.perspective 
+*.perspectivev3
+*.pyc 
+*~.nib/
+
+# xcworkspace is used for xcode's snapshot feature when converting to 
+# "modern" settings.  These are the incantations for a pristine git repo
+xcuserdata
+project.xcworkspace
+build
+
+profile
+
+# Textmate - if you build your xcode projects with it
+*.tm_build_errors
+
+# other vcs 
+.svn
+
+# Additional 2011Sep21
+*.[oa]
+*.swp
+*~
+
+# if / when we have a private key
+dsa_priv.pem
+
+# Macintosh OS stuff
+.DS_Store
