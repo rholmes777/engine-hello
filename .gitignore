@@ -3,7 +3,7 @@
 *.pbxuser
 *.perspective 
 *.perspectivev3
-*.pyc 
+*.pyc
 *~.nib/
 
 # xcworkspace is used for xcode's snapshot feature when converting to 
