@@ -47,6 +47,15 @@ from google.appengine.api import users
 #                             'test@example.com')
 #     logging.debug("Another greeting using vars(): %s" % vars(another_greeting))                            
 
+# A single transaction can apply to multiple entities, so long as the entities are
+# descended from a common ancestor. Such entities are said to belong to the same entity
+# group.  
+
+# NOTE - the sandboxing (not allowing writes) ensures that the system can provide
+# redundancy with no shared state (other than in the DB).  Requests can run on any 
+# server.  Also, multiple apps are isolated from one another on the same server.
+
+
 
 class Greeting(db.Model):
   """Models an individual Guestbook entry with an author, content, and date."""
