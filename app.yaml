@@ -1,6 +1,6 @@
 # NOTE versions will be retained on the app server, and previous
 # versions can be restored via the administrative console.
-application: helloworld 
+application: kiocb7
 version: 1
 runtime: python27
 api_version: 1
