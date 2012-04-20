@@ -3,7 +3,7 @@ indexes:
 
 # NOTE: Missing indexes will cause runtime exceptions at such time as a
 # query requiring that index is issued.  Ensure necessary indexes
-# are created before deployment. -RAH
+# are created before deployment. 
 
 # index cap (200)
 

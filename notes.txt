@@ -11,7 +11,12 @@ able to process in the same transaction. Then, when you create those entities, p
 them in the same entity group by declaring them with a common ancestor.
     
 NOTE: comments in the tutorial state: the rate at which you can write to the same entity group
-is limited to 1 write to the entity group per second.  Explanation:
+is limited to 1 write to the entity group per second.  Entity groups control how
+the entities are distributed across various servers (one assumes they are localized for
+facilitating transactions).
+
+Design goal: reduce number of concurrent writes to an entity (or group), to avoid
+too many "concurrency failures".
 
 guestbook_name is a parameter in the URL; the parent of a Greeting is
 a guestbook: 'Guestbook: name=Foo barbaz'
@@ -23,6 +28,7 @@ Replication datastore. Queries that span entity groups are eventually
 consistent. If we omitted the ancestor from this query there would be a
 slight chance that Greeting that had just been written would not show up
 in a query.
+
 The only supported queries are those whose performance scales with the size
 of the result set (as opposed to the data set). (Better scalability)
 
@@ -37,8 +43,7 @@ of the result set (as opposed to the data set). (Better scalability)
     logging.debug("Another greeting using vars(): %s" % vars(another_greeting))                            
 
 A single transaction can apply to multiple entities, so long as the entities are
-descended from a common ancestor. Such entities are said to belong to the same entity
-group.  
+descended from a common ancestor. (Same entity group)
 
 NOTE - the sandboxing (not allowing writes) ensures that the system can provide
 redundancy with no shared state (other than in the DB).  Requests can run on any 
